@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; ml_fw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How a contribution is reviewed and accepted" href="Maintenance_Philosophy.html" />
+    <link rel="prev" title="Welcome to ml_fw’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ml_fw
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-ml_fw.data_io">Data IO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ml_fw.data_io.create"><code class="docutils literal notranslate"><span class="pre">create()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ml_fw.data_io.feat_shift"><code class="docutils literal notranslate"><span class="pre">feat_shift()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ml_fw.ml_mod">Machine Learning Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ml_fw.ml_mod.train"><code class="docutils literal notranslate"><span class="pre">train()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ml_fw.ml_mod.tune"><code class="docutils literal notranslate"><span class="pre">tune()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ml_fw.profile">Model Peformance Profiling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ml_fw.profile.cor_matrix"><code class="docutils literal notranslate"><span class="pre">cor_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ml_fw.inspect">Model Inspection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-ml_fw.inspect._boxplot_metvx">boxplot Metric vs X</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ml_fw.inspect._boxplot_metvx.boxplot_metvx"><code class="docutils literal notranslate"><span class="pre">boxplot_metvx()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ml_fw.inspect._boxplot_vx">boxplot Y vs X</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ml_fw.inspect._boxplot_vx.boxplot_vx"><code class="docutils literal notranslate"><span class="pre">boxplot_vx()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ml_fw.inspect._rolling_met">Rolling Metric</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ml_fw.inspect._rolling_met.rolling_met"><code class="docutils literal notranslate"><span class="pre">rolling_met()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Maintenance_Philosophy.html">How a contribution is reviewed and accepted</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ml_fw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading"></a></h1>
+<section id="module-ml_fw.data_io">
+<span id="data-io"></span><h2>Data IO<a class="headerlink" href="#module-ml_fw.data_io" title="Link to this heading"></a></h2>
+<p>Created on Wed Jun 12 08:49:02 2024.</p>
+<p>&#64;author: krmurph1</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.data_io.create">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.data_io.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feat_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lt_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#ml_fw.data_io.create" title="Link to this definition"></a></dt>
+<dd><p>Create a feature (x_dat) and dependent (y_dat) data set.</p>
+<p>For use in SciKit Learn models.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dat<span class="classifier">pd.DataFrame</span></dt><dd><p>A pandas dataframe containing all the data.</p>
+</dd>
+<dt>feat_col<span class="classifier">list, optional</span></dt><dd><p>Columns to add to the feature data.
+The default is None.</p>
+</dd>
+<dt>y_col<span class="classifier">list, optional</span></dt><dd><p>Columns to add to the dependent.
+The default is None.</p>
+</dd>
+<dt>log_col<span class="classifier">list, optional</span></dt><dd><p>Columns from the passed DataFrame that
+should be logged. In Heliophysics variables
+often span several order of magnitude and may
+require the data to be logged (semi-normalized).
+The default is None.</p>
+</dd>
+<dt>lt_col<span class="classifier">list, optional</span></dt><dd><p>Columns from the passed DataFrame that
+should be converted to cyclical arguments.
+For example longitude, local time, or
+magnetic local time.
+The default is None.</p>
+</dd>
+<dt>t_col<span class="classifier">list, optional</span></dt><dd><p>If looking at time-series data the time
+column that the user would like to keep.
+The default is None.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>TypeError</dt><dd><p>If feat_col and y_col are not lists.
+feat_col and y_col are both required
+keyword arguments</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>x_dat<span class="classifier">pd.DataFrame</span></dt><dd><p>The feature data.</p>
+</dd>
+<dt>y_dat<span class="classifier">pd.DataFrame</span></dt><dd><p>The dependent data.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.data_io.feat_shift">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.data_io.</span></span><span class="sig-name descname"><span class="pre">feat_shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DateTime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Timedelta</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_orig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_na</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#ml_fw.data_io.feat_shift" title="Link to this definition"></a></dt>
+<dd><p>Time shift features.</p>
+<p>Function to shift feature data in time so
+that time lags can be applied to feature
+vectors.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s_dat<span class="classifier">pd.DataFrame</span></dt><dd><p>A dataframe with the features.
+The default is ‘pd.DataFrame’</p>
+</dd>
+<dt>t_col<span class="classifier">TYPE, optional</span></dt><dd><p>The column or index where time is located. This is used
+to shift the data.
+The default is ‘DateTime’. ‘index’ or 0 will use the
+index as the time array</p>
+</dd>
+<dt>periods<span class="classifier">list[int], optional</span></dt><dd><p>A list integer peiods to shift the data. The unit of the shift
+can be set using ‘unit’
+The default is [5], which will shift the data 5 minutes.
+An arbitrary number of shifts can be suplied.</p>
+</dd>
+<dt>unit<span class="classifier">str, optional</span></dt><dd><p>The unit of the time shift periods.
+Should be of similar types as pd.Timedelta.
+The default is ‘min’.</p>
+</dd>
+<dt>tolerance<span class="classifier">pd.Timedelta, optional</span></dt><dd><p>The max differnce between the orignal time index and time shifted
+index to rematch variables. If this is not set then the time column
+is used to determine a nominal resolution ‘res’ in seconds and
+tolerance is set as (res/2)+1.
+The default is None.</p>
+</dd>
+<dt>drop_orig<span class="classifier">bool, optional</span></dt><dd><p>In some cases the orignal data is not required, only the time shifted
+data. This will drop the original data columns
+The default is False.</p>
+</dd>
+<dt>drop_na<span class="classifier">bool, optional</span></dt><dd><p>The time shift creates a number of NaN at the begining of the
+new DataFrame, this drops those. The default is True.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Raises<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>TypeError</dt><dd><p>If keywords are not correct type.</p>
+</dd>
+<dt>KeyError</dt><dd><p>If the time column can’t be found in the DataFrame.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h3>Returns<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s_dat<span class="classifier">TYPE</span></dt><dd><p>A dataframe containing time shifted feature columns.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-ml_fw.ml_mod">
+<span id="machine-learning-model"></span><h2>Machine Learning Model<a class="headerlink" href="#module-ml_fw.ml_mod" title="Link to this heading"></a></h2>
+<p>Created on Thu Jun 13 14:54:54 2024.</p>
+<p>&#64;author: krmurph1</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.ml_mod.train">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.ml_mod.</span></span><span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">17</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml_fw.ml_mod.train" title="Link to this definition"></a></dt>
+<dd><p>Train the ML model.</p>
+<section id="id4">
+<h3>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>f_dat<span class="classifier">array-like. Shape (n_samples, n_features) or (n_samples, n_samples)</span></dt><dd><p>Training vectors, where n_samples is the number of samples and
+n_features
+is the number of features. For precomputed kernel or distance matrix,
+the expected shape of X is (n_samples, n_samples).</p>
+</dd>
+<dt>y_dat<span class="classifier">array-like of shape (n_samples, n_output) or (n_samples,)</span></dt><dd><p>Target relative to X for classification or regression;
+None for unsupervised learning.</p>
+</dd>
+<dt>estimator<span class="classifier">estimator object</span></dt><dd><p>This is assumed to implement the scikit-learn estimator interface.
+Either estimator needs to provide a score function,
+or scoring must be passed.</p>
+</dd>
+<dt>grid_params<span class="classifier">dict or list of dictionaries</span></dt><dd><p>Dictionary with parameters names (str) as keys and lists of parameter
+settings to try as values, or a list of such dictionaries,
+in which case the grids spanned by each dictionary in the list are
+explored. This enables searching over any
+sequence of parameter settings.</p>
+</dd>
+<dt>grid_kwargs :</dt><dd><p>GridSearchCV keyword arguments</p>
+</dd>
+<dt>grid_ratio<span class="classifier">float or int, default=None</span></dt><dd><p>If float, should be between 0.0 and 1.0 and represent the proportion
+of the dataset to include in the train split. If int, represents the
+absolute number of train samples. If None, the value is automatically
+set to the complement of the test size.</p>
+</dd>
+</dl>
+<p>random_state
+Returns
+==========
+est_fit : object</p>
+<blockquote>
+<div><p>Instance of fitted estimator.</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.ml_mod.tune">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.ml_mod.</span></span><span class="sig-name descname"><span class="pre">tune</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_dat</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml_fw.ml_mod.tune" title="Link to this definition"></a></dt>
+<dd><p>Perform Grid Search.</p>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>estimator<span class="classifier">estimator object</span></dt><dd><p>This is assumed to implement the scikit-learn estimator interface.
+Either estimator needs to provide a score function,
+or scoring must be passed.</p>
+</dd>
+<dt>grid_param<span class="classifier">dict or list of dictionaries</span></dt><dd><p>Dictionary with parameters names (str) as keys and lists of parameter
+settings to try as values, or a list of such dictionaries,
+in which case the grids spanned by each dictionary in the list are
+explored. This enables searching over any
+sequence of parameter settings.</p>
+</dd>
+<dt>f_dat<span class="classifier">array-like. Shape (n_samples, n_features) or (n_samples, n_samples)</span></dt><dd><p>Training vectors, where n_samples is the number of samples and
+n_features
+is the number of features. For precomputed kernel or distance matrix,
+the expected shape of X is (n_samples, n_samples).</p>
+</dd>
+<dt>y_dat<span class="classifier">array-like of shape (n_samples, n_output) or (n_samples,)</span></dt><dd><p>Target relative to X for classification or regression;
+None for unsupervised learning.</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h3>Returns<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>model_grid<span class="classifier">object</span></dt><dd><p>Instance of fitted estimator.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-ml_fw.profile">
+<span id="model-peformance-profiling"></span><h2>Model Peformance Profiling<a class="headerlink" href="#module-ml_fw.profile" title="Link to this heading"></a></h2>
+<p>Correlation matrix with lagged correlation and colinearity.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.profile.cor_matrix">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.profile.</span></span><span class="sig-name descname"><span class="pre">cor_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Series</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor_ind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cat_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor_meth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pearson'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#ml_fw.profile.cor_matrix" title="Link to this definition"></a></dt>
+<dd><p>Derive correlation matrix of features with target variable.</p>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl>
+<dt>f_dat<span class="classifier">pd.DataFrame | list</span></dt><dd><p>Feature data which is correlated with target data.</p>
+<p>A pd.DataFrame containing the feature data or a list containing the
+column names of the feature data set.</p>
+</dd>
+<dt>y_dat<span class="classifier">pd.DataFrame | pd.Series | list</span></dt><dd><p>Target data which is correlated with feature data</p>
+<p>A pd.DataFrame, pd.Series, or list which conatins the target dataset.</p>
+<p>If a list the column name of the target data.</p>
+</dd>
+<dt>cor_dat<span class="classifier">pd.DataFrame, optional</span></dt><dd><p>The default is None.</p>
+<p>If both y_dat and f_dat are lists then the cor_dat pd.DataFrame
+contains the feature and target data where the columns correspond to
+the list elements of y_dat and f_dat.</p>
+</dd>
+<dt>cor_ind<span class="classifier">str, optional</span></dt><dd><p>The default is None.</p>
+<p>If cor_ind is passed and f_dat and y_dat are pd.DataFrames then cor_ind
+contains the column name which is used to join f_dat and y_dat. Else
+f_dat and y_dat are joined on index.</p>
+</dd>
+<dt>cat_dat<span class="classifier">list | dict, optional</span></dt><dd><p>A list containing the column names which are categorical/binary data or
+callables that can be used to filter the data.</p>
+<p>If the list element is a string then it contains the column name of
+a binary categorical data and two sets of correlations are performed.
+One on a subset of the data where the categorical variable is 0 and the
+other where the variable is 1.</p>
+<p>If the list elements is a callable then the callable is a function that
+can be used to filter either the feature or target data. These can be
+lambda functions used to filter a pd.DataFrame on a particular column.
+For example, the feature data has a columns ‘AE’ and ‘SymH’, then:</p>
+<blockquote>
+<div><p>ae_f = lambda x: x[‘AE’] &gt; 500
+sym_f = lambda x: x[‘SymH’] &lt; -50
+cat_dat = [ae_f, sym_f]</p>
+</div></blockquote>
+<p>Here the correlation pd.DataFrame will be filtered to look at the
+correlations of the features with the target when the AE column is
+greater then 500. Another set of correlations will be calculated when
+SymH is less then -50.</p>
+<p>If cat_dat is a dictionary the values contain strings or callables
+similar to if it was a list. The keys are used to name the columns of
+the returned correlation matrix.</p>
+<p>If cat_dat is a list the correlations are returned with column names
+‘call_xx’ where xx is an integer.</p>
+</dd>
+<dt>cor_meth<span class="classifier">TYPE, optional</span></dt><dd><p>The default is ‘pearson’.</p>
+<p>The type of correlation used in pd.DataFrame.corr</p>
+</dd>
+<dt>numeric_only<span class="classifier">bool, option</span></dt><dd><p>The defauls is True</p>
+<p>Include only float, int or boolean data.</p>
+</dd>
+</dl>
+</section>
+<section id="id8">
+<h3>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<dl>
+<dt>cor_plot<span class="classifier">pd.DataFrame</span></dt><dd><p>A pd.DataFrame whose rows are the correlations of the features with
+the target variable.</p>
+<p>Additional columns are added to account for correlations provided via
+the cat_dat keyword.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-ml_fw.inspect">
+<span id="model-inspection"></span><h2>Model Inspection<a class="headerlink" href="#module-ml_fw.inspect" title="Link to this heading"></a></h2>
+<p>A collection of tools that are used to inspect model results.</p>
+<section id="module-ml_fw.inspect._boxplot_metvx">
+<span id="boxplot-metric-vs-x"></span><h3>boxplot Metric vs X<a class="headerlink" href="#module-ml_fw.inspect._boxplot_metvx" title="Link to this heading"></a></h3>
+<p>Created on Fri Oct  4 12:44:50 2024.</p>
+<p>&#64;author: krmurph1</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.inspect._boxplot_metvx.boxplot_metvx">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.inspect._boxplot_metvx.</span></span><span class="sig-name descname"><span class="pre">boxplot_metvx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_mod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kfolds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kfrac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xrange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whisker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml_fw.inspect._boxplot_metvx.boxplot_metvx" title="Link to this definition"></a></dt>
+<dd><p>Calculate boxplot like statistics of a metric (using y-t and y-m) vs x.</p>
+<p>The data is binned as a function of x. For each bin in x the a fraction of
+the true and model data are randomly sampled (kfrac). This sample is used
+to calculte a metric of the data. This is repeated kfolds time to generate
+a distribution of metric values for that bin.</p>
+<p>This distribution is then used to derive stats for a box and whisker plot.
+This is repeated for each bin of x.</p>
+<p>The metric can be a callable passed to the function, for example:</p>
+<blockquote>
+<div><p>met = lambda y_true, y_pred: metrics.accuracy_score(y_true, y_pred)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>or</dt><dd><dl class="simple">
+<dt>met = lambda y_true, y_pred: metrics.accuracy_score(y_true, y_pred,</dt><dd><p>normalize=False)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>and the callable can specify the parameters of the metric.</p>
+<p>More examples:
+- Regression score</p>
+<blockquote>
+<div><dl class="simple">
+<dt>met = lambda y_true, y_pred: metrics.mean_absolute_error(y_true,</dt><dd><p>y_pred)</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Clustering score</dt><dd><dl class="simple">
+<dt>met = lambda y_true, y_pred: metrics.homogeneity_score(labels_true,</dt><dd><p>labels_pred)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<p>In these cases the callable would be passed using the box_metric keyword.</p>
+<section id="id9">
+<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<dl>
+<dt>x_dat<span class="classifier">pd.DataFrame | list</span></dt><dd><p>A pandas DataFrame containing the data for binning. The metric
+(calculated from y-true and y-mod) is then binned and used to calculate
+statistics and derive box and whisker values for each bin.</p>
+<p>The DataFrame can have more the one column. Each column will be binned
+(see bins) and box/whisker data returned.</p>
+<p>If x_dat is a list then the list contains the column names which
+correspond to the binning data in box_dat DataFrame.</p>
+</dd>
+<dt>y_true<span class="classifier">pd.DataFrame | list</span></dt><dd><p>A pandas DataFrame containing the true data which will be use to
+calculte the metric.</p>
+<p>If y_dat is a list it contains the column name for box_dat that
+contains the true data for calculating the metric.</p>
+<p>y_dat should be a single columnd DataFrame or single valued list.</p>
+</dd>
+<dt>y_mod<span class="classifier">pd.DataFrame | list</span></dt><dd><p>A pandas DataFrame containing the model data which will be use to
+calculte the metric.</p>
+<p>If y_mod is a list it contains the column name for box_dat that
+contains the model data used to calculate the metric.</p>
+<p>y_mod should be a single columnd DataFrame or single valued list.</p>
+</dd>
+<dt>box_dat<span class="classifier">pd.DataFrame, optional</span></dt><dd><p>The default is None.</p>
+<p>A pandas DataFrame continaing the x-data and y-true and y-mod which are
+used to calculate a metric. The metric is then binned as a fucntion of
+the x-data and subsequently used to derive box/whisker values..</p>
+<p>If provided, x_dat, y_true, and y_mod should be lists specifying the
+column names of the x-data for binning and the y-true and y-mod data
+for calculating metric values.</p>
+</dd>
+<dt>box_metric<span class="classifier">callable</span></dt><dd><p>The default is None.</p>
+<p>A callable which can be used to calculate metric values from y-true and
+y-mod.</p>
+<p>If y-true and y-mod are integers then it is assumed the model is a
+classification type and the accuracy metric from scikit-kearn is used.</p>
+<p>If they are floats then the mean squared error from scikit-learn is
+used.</p>
+</dd>
+<dt>kfolds<span class="classifier">int, optional</span></dt><dd><p>The default is 100.</p>
+<p>For each bin, randomly sample the metric kfolds time to create a
+distribution. Use this distribution to derive box and whisker stats.</p>
+</dd>
+<dt>kfrac<span class="classifier">int, optional</span></dt><dd><p>The default is 0.5.</p>
+<p>The fraction of the data to use in each kfold.</p>
+</dd>
+<dt>bins<span class="classifier">int | list, optional</span></dt><dd><p>The default is 10.</p>
+<p>The number of bins with which the x-data is seprated into when deriving
+statistics. It defines the number of equal-width bins in the given
+range.</p>
+<p>If bins is a list it should have the same number of elements or
+columns as x_dat. Each value then specifies the bins for the
+corresponding x data.</p>
+<p>If the number of elements is not the same bins is set to None and the
+default value of 10 is used</p>
+<p>Used in call to scipy.stats.binned_statistic</p>
+</dd>
+<dt>xrange<span class="classifier">list[tuple[float, float]] | None, optional</span></dt><dd><p>The default is None.</p>
+<p>The lower and upper range of the bins. If not provided, range is simply
+(x.min(), x.max()). Values outside the range are ignored.</p>
+<p>If xrange is a list each element should be a two element list which
+corresponds to the min and max for the corresponding element of x_col.
+In this case the length of xrange should be the same as x_col or the
+number of columns of x_col (depending on type)</p>
+<p>Used in call to scipy.stats.binned_statistic</p>
+</dd>
+<dt>whisker<span class="classifier">float, optional</span></dt><dd><p>The default is 1.5.</p>
+<p>The position of the whiskers.</p>
+<p>If a float, the lower whisker is at the lowest datum above
+Q1 - whis*(Q3-Q1), and the upper whisker at the highest datum below
+Q3 + whis*(Q3-Q1), where Q1 and Q3 are the first and third quartiles.
+The default value of whis = 1.5 corresponds to Tukey’s original
+definition of boxplots.</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h4>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<dl>
+<dt>box_idx<span class="classifier">Dictionary</span></dt><dd><p>A dictionary for each of x_col specifing the values for
+the box/whisker plot.</p>
+<p>If x_dat is a DataFrame the keys are the column names else they
+are the values of the x_dat list.</p>
+<p>box_idx[‘key’]</p>
+<p>Each value is a subsequent dictionary containing the box/whisker data
+for plotting.</p>
+<p>box_idx[‘key’][‘box_stats’] - a list of dictionaries containgin the
+box/whisker statistics for bin of the corresponding x_dat (‘key’).</p>
+<dl>
+<dt>The required keys for a box plot (from matplotlib.axes.Axes.bxp) are:</dt><dd><ul class="simple">
+<li><p>med: Median (scalar).</p></li>
+<li><p>q1, q3: First &amp; third quartiles (scalars).</p></li>
+<li><p>whislo, whishi: Lower &amp; upper whisker positions (scalars).</p></li>
+</ul>
+</dd>
+<dt>Optional keys which are used are:</dt><dd><ul class="simple">
+<li><p>mean: Mean (scalar). Needed if showmeans=True.</p></li>
+<li><p>fliers: Data beyond the whiskers (array-like).</p></li>
+</ul>
+<p>Needed if showfliers=True. Always empty</p>
+</dd>
+</dl>
+<p>box_idx[‘key’][‘x_edge’] - an array of dtype float which returns
+the bin edges for the corresponding x_dat (‘key’). Returned from
+scipy.stats.binned_statistic</p>
+<p>box_idx[‘key’][‘x_centre’] - an array of dtype float containing
+the centre x value for each bin from box_idx[‘key’][‘x_edge’].</p>
+<p>box_idx[‘key’][‘x_width’] - the width of a x-bin.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-ml_fw.inspect._boxplot_vx">
+<span id="boxplot-y-vs-x"></span><h3>boxplot Y vs X<a class="headerlink" href="#module-ml_fw.inspect._boxplot_vx" title="Link to this heading"></a></h3>
+<p>Created on Wed Sep 18 11:28:59 2024.</p>
+<p>&#64;author: krmurph1</p>
+<p>ivestigate residuals of a ml model</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.inspect._boxplot_vx.boxplot_vx">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.inspect._boxplot_vx.</span></span><span class="sig-name descname"><span class="pre">boxplot_vx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">box_meth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xrange</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whisker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ml_fw.inspect._boxplot_vx.boxplot_vx" title="Link to this definition"></a></dt>
+<dd><p>Calculate boxplot like statistics of y as a function of x.</p>
+<section id="id11">
+<h4>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>x_dat<span class="classifier">pd.DataFrame | list</span></dt><dd><p>A pandas DataFrame containing the data for binning. The y-data within
+the binned is then used to calculate statistics and derive box and
+whisker values for each bin.
+The DataFrame can have more the one column. Each column will be binned
+(see bins) and box/whisker data returned.
+If x_dat is a list then the list contains the column names which
+correspond to the binning data in box_dat DataFrame.</p>
+</dd>
+<dt>y_dat<span class="classifier">pd.DataFrame | list</span></dt><dd><p>A pandas DataFrame containing the y-data which will be use to calculate
+the box and whisker statistics for each bin from x_dat.
+If y_dat is a list it contains the column name for box_dat that
+contains the y-data with which box/whisker values are derived.
+y_dat should be a single columnd DataFrame or single valued list.</p>
+</dd>
+<dt>box_dat<span class="classifier">pd.DataFrame, optional</span></dt><dd><p>The default is None.
+A pandas DataFrame continaing the x-data and y-data for which values
+are binned and subsequently used to derive box/whisker values,
+respectively.
+If provided, x_dat and y_dat should be lists specifying the column
+names of the x-data for binning and the y-data for deriving box/whisker
+values.</p>
+</dd>
+<dt>box_meth<span class="classifier">bool | dict, optional</span></dt><dd><p>The default is True.
+Currently a place holder which may be used to change the statistics
+returned for the box/whisker values.</p>
+</dd>
+<dt>bins<span class="classifier">int | list, optional</span></dt><dd><p>The default is 10.
+The number of bins with which the x-data is seprated into when deriving
+statistics. It defines the number of equal-width bins in the given
+range.
+If bins is a list it should have the same number of elements or
+columns as x_dat. Each value then specifies the bins for the
+corresponding x data.
+If the number of elements is not the same bins is set to None and the
+default value of 10 is used
+Used in call to scipy.stats.binned_statistic</p>
+</dd>
+<dt>xrange<span class="classifier">list[tuple[float, float]] | None, optional</span></dt><dd><p>The default is None.
+The lower and upper range of the bins. If not provided, range is simply
+(x.min(), x.max()). Values outside the range are ignored.
+If xrange is a list each element should be a two element list which
+corresponds to the min and max for the corresponding element of x_col.
+In this case the length of xrange should be the same as x_col or the
+number of columns of x_col (depending on type)
+Used in call to scipy.stats.binned_statistic</p>
+</dd>
+<dt>whisker<span class="classifier">float, optional</span></dt><dd><p>The default is 1.5.
+The position of the whiskers.
+If a float, the lower whisker is at the lowest datum above
+Q1 - whis*(Q3-Q1), and the upper whisker at the highest datum below
+Q3 + whis*(Q3-Q1), where Q1 and Q3 are the first and third quartiles.
+The default value of whis = 1.5 corresponds to Tukey’s original
+definition of boxplots.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h4>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<dl>
+<dt>box_idx<span class="classifier">Dictionary</span></dt><dd><p>A dictionary for each of x_col specifing the values for
+the box/whisker plot.
+If x_dat is a DataFrame the keys are the column names else they
+are the values of the x_dat list.
+box_idx[‘key’]
+Each value is a subsequent dictionary containing the box/whisker data
+for plotting.
+box_idx[‘key’][‘box_stats’] - a list of dictionaries containgin the
+box/whisker statistics for bin of the corresponding x_dat (‘key’).
+The required keys for a box plot (from matplotlib.axes.Axes.bxp) are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>med: Median (scalar).</p></li>
+<li><p>q1, q3: First &amp; third quartiles (scalars).</p></li>
+<li><p>whislo, whishi: Lower &amp; upper whisker positions (scalars).</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>Optional keys which are used are:</dt><dd><ul class="simple">
+<li><p>mean: Mean (scalar). Needed if showmeans=True.</p></li>
+<li><p>fliers: Data beyond the whiskers (array-like).</p></li>
+</ul>
+<p>Needed if showfliers=True. Always empty</p>
+</dd>
+</dl>
+<p>box_idx[‘key’][‘x_edge’] - an array of dtype float which returns
+the bin edges for the corresponding x_dat (‘key’). Returned from
+scipy.stats.binned_statistic
+box_idx[‘key’][‘x_centre’] - an array of dtype float containing
+the centre x value for each bin from box_idx[‘key’][‘x_edge’].
+box_idx[‘key’][‘x_width’] - the width of a x-bin.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-ml_fw.inspect._rolling_met">
+<span id="rolling-metric"></span><h3>Rolling Metric<a class="headerlink" href="#module-ml_fw.inspect._rolling_met" title="Link to this heading"></a></h3>
+<p>Created on Tue Oct  8 11:16:51 2024.</p>
+<p>&#64;author: murph</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_fw.inspect._rolling_met.rolling_met">
+<span class="sig-prename descclassname"><span class="pre">ml_fw.inspect._rolling_met.</span></span><span class="sig-name descname"><span class="pre">rolling_met</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">met_dat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'y_true'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'y_pred'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'DateTime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roll_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roll_metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#ml_fw.inspect._rolling_met.rolling_met" title="Link to this definition"></a></dt>
+<dd><p>Calculate a rolling metric.</p>
+<section id="id13">
+<h4>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<dl>
+<dt>met_dat<span class="classifier">pd.DataFrame</span></dt><dd><p>Pandas DataFrame which contains the observed and predicted data as well
+as a index or time series which can be used to create a set of rolling
+windows which are used to derive metrics.</p>
+</dd>
+<dt>y_true<span class="classifier">str, optional</span></dt><dd><p>The default is ‘y_true’.
+The column name which contains the observerd or true values.</p>
+</dd>
+<dt>y_pred<span class="classifier">str, optional</span></dt><dd><p>The default is ‘y_pred’.
+The column name which contains the predicted or modeled values.</p>
+</dd>
+<dt>on<span class="classifier">str, optional</span></dt><dd><p>The default is ‘DateTime’.
+The used to define the rolling windows.
+If on=’index’ then the index of the met_data DataFrame is used.</p>
+</dd>
+<dt>roll_kwargs<span class="classifier">dict, optional</span></dt><dd><p>The default is None.
+Keywords arguments to be passed to DataFrame.rolling() method.
+If nothing is passed the ‘on’ column is checked if it is datetime like
+and if true a 60 minute centered rolling window is used.
+Else a 10 point centred rolling window is used.</p>
+</dd>
+<dt>roll_metric<span class="classifier">list | dict, optional</span></dt><dd><p>The default is None.
+A callable, list of callables, or dictionary of callables which can
+be used to derive a metric from the true and predicted values.</p>
+<p>The callables can be lambda functions utilizing metrics from
+sklearn.metrics. For example:</p>
+<blockquote>
+<div><p>met = lambda tr, pr: sklearn.metrics.accuracy_score(tr,pr)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>The labmdas can also be used to set keyword arguments. For example:</dt><dd><p>met = lamba tr, pr: sklearn.metrics.log_loss(tr,pr, normalize=True)</p>
+</dd>
+</dl>
+<p>If roll_mtric is a list each list element should be metric callable.
+If it is a dictionary the key should be the name and value a metric
+callable.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h4>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>rdf<span class="classifier">pd.DataFrame</span></dt><dd><p>A DataFrame containg the values of a rolling metric for each passed
+callable/metric and the index/DateTime values for each value.
+If roll_metric is a list the names of the column are ‘Metric XX’ where
+xx is the list element.
+If roll_metric is dictionary the names of the columns are the
+dictionary keys.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ml_fw’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Maintenance_Philosophy.html" class="btn btn-neutral float-right" title="How a contribution is reviewed and accepted" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Kyle Murphy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
